@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Art Rankings</title>
+    <link rel="stylesheet" href="/static/rankings/styles.css">
+    <script src="/static/rankings/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="title-box">
+            <img src="/static/rankings/logo.png" alt="University Logo" class="logo">
+            <h1>MediaArtRankings: Science and Art</h1>
+        </div>
+
+        <div class="info-box">
+            <p>From <strong>CMA</strong> at The Hong Kong University of Science and Technology (Guangzhou)</p>
+            <p>
+                <strong>MediaArtRankings</strong> is a ranking system focused on <strong>Science and Art</strong>, integrating multiple journals and academic conferences.
+                It aims to identify universities that have made outstanding contributions at the intersection of these two fields in recent years.
+                <strong>Click on</strong> a university name to expand a dropdown list of associated authors collected in the database.
+                <strong>Click on</strong> an author's name to view the titles of papers related to them.
+            </p>
+            <p>
+                For more information, check out the <a href="/read-me/" id="read-me-link">READ ME</a>!
+            </p>
+        </div>
+        <div class="actions">
+            <button id="related-conferences" class="main-actions-button">Related Conferences</button>
+            <button id="read-me" class="main-actions-button">Read ME</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="search-section">
+            <input type="text" id="search-input" placeholder="Search for universities..." />
+            <button id="search-button">Search</button>
+        </div>
+
+        <section id="ranking-section">
+            <table id="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>University</th>
+                        <th>Total Score</th>
+                    </tr>
+                </thead>
+                <tbody id="ranking-table-body">
+                    <!-- 动态内容 -->
+                </tbody>
+            </table>
+            <div id="pagination" class="pagination"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="actions">
+            <a href="/" class="button back-button">Back to Rankings</a>
+        </div>
+    </footer>
+</body>
+</html>
