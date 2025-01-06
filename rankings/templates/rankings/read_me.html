@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>READ ME</title>
+    <link rel="stylesheet" href="/static/rankings/styles.css">
+    <script src="/static/rankings/scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <header>
+        <div class="title-box">
+            <img src="/static/rankings/logo.png" alt="University Logo" class="logo">
+            <h1>READ ME</h1>
+        </div>
+
+        <div class="actions">
+            <a href="/" class="button">Back to Rankings</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="info-box">
+            <h2>Overview</h2>
+            <p>This website focuses on the integration of science and art. It is based on data from international, renowned scientific conferences and journals featuring Art Tracks. By analyzing papers published in the past five years, along with researchers' academic backgrounds and affiliations, we allocate scores to universities and institutions. The resulting ranking highlights academic contributions in the intersection of science and art.</p>
+
+            <h2>Why MediaArtRankings</h2>
+            <p><strong>Background and Goals:</strong> As science and art increasingly intersect, research in these domains plays a vital role in fostering innovation and societal development. This project aims to evaluate global universities' influence in the field of science and art fairly and transparently, providing valuable references for academia and education.</p>
+            <p><strong>Key Considerations:</strong></p>
+            <ul>
+                <li><strong>Diversity:</strong> Incorporates multi-disciplinary and cross-regional research to showcase universities' diverse contributions.</li>
+                <li><strong>Professionalism:</strong> Focuses on high-impact conferences and journals, emphasizing cutting-edge achievements in science and art.</li>
+                <li><strong>Transparency:</strong> Relies on public data and mathematical models to ensure fairness and objectivity in rankings.</li>
+            </ul>
+
+            <h2>Criteria for Selecting Conferences and Journals</h2>
+            <ul>
+                <li><strong>Reputation:</strong> Widely recognized on platforms like Google Scholar, with high-impact Tracks (including Art Tracks).</li>
+                <li><strong>Art Tracks:</strong> Dedicated Art Tracks are required to reflect the interdisciplinary nature of science and art.</li>
+                <li><strong>Thematic Relevance:</strong> Must align with the core theme of science-art integration.</li>
+                <li><strong>Global and Multi-Disciplinary:</strong> Covers various disciplines and regions to ensure a comprehensive evaluation.</li>
+            </ul>
+
+            <h2>Ranking Methodology</h2>
+            <ol>
+                <li><strong>Author Score Calculation:</strong> First authors are awarded a fixed score, while other authors share the remaining score based on:
+                    \[
+                    \text{Remaining Score} = 100 - \frac{100}{\log_2(a+1)}
+                    \]
+                    where \( a \) is the total number of authors. Scores are distributed logarithmically to account for diminishing marginal contributions and are evenly divided among co-authors.</li>
+                <li><strong>Attribution of Scores:</strong> Author scores are proportionally distributed to their affiliated universities or institutions.</li>
+                <li><strong>Institutional Contribution Adjustment:</strong> Associated institutions (e.g., research labs) contribute 50% of their total score to their affiliated university, provided the university is included in the initial rankings.</li>
+                <li><strong>Final Ranking Generation:</strong> University scores combine initial contributions and adjusted contributions from associated institutions, ensuring rankings reflect a holistic view of academic impact.</li>
+            </ol>
+
+            <h2>Future Directions</h2>
+            <ul>
+                <li>Introduce temporal analysis to evaluate the influence of researchers' affiliations during specific time periods, enhancing ranking accuracy.</li>
+                <li>Incorporate additional data dimensions to expand coverage and meet diverse user needs.</li>
+                <li>Include more conferences and journals to capture a broader range of science-art achievements.</li>
+                <li>Expand thematic classifications, such as virtual reality, media art, AI and art, etc., for more precise evaluations.</li>
+            </ul>
+
+            <h2>Contact Us</h2>
+            <p>We warmly welcome discussions, exchanges, and suggestions! If you have any of the following, feel free to reach out:</p>
+            <ul>
+                <li><strong>Additional Information:</strong> Provide more detailed academic data sources or conference information.</li>
+                <li><strong>Corrections:</strong> Point out potential data inaccuracies or ranking issues.</li>
+                <li><strong>Suggestions:</strong> Propose improvements to algorithms or new evaluation dimensions.</li>
+            </ul>
+            <p><strong>Thank you for your support!</strong></p>
+            <p><strong>Contact Information (Tentative):</strong></p>
+            <ul>
+                <li>Email: example@example.com</li>
+                <li>Phone: +1-234-567-890</li>
+                <li>Address: 1 Duxue Road, Nansha District, Guangzhou City, Guangdong Province</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
