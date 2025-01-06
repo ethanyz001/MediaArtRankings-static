@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Related Conferences 按钮跳转
     if (relatedConferencesButton) {
         relatedConferencesButton.addEventListener('click', () => {
-            window.location.href = '/related-conferences';
+            window.location.href = 'related_conferences.html';
         });
     }
 
     // Read ME 按钮跳转
     if (readMeButton) {
         readMeButton.addEventListener('click', () => {
-            window.location.href = '/read-me';
+            window.location.href = 'read_me.html';
         });
     }
 
