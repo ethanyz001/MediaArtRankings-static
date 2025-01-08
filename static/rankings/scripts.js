@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Related Conferences 按钮跳转
     if (relatedConferencesButton) {
         relatedConferencesButton.addEventListener('click', () => {
-            window.location.href = 'read_me.html';
+            window.location.href = 'related_conferences.html';
         });
     }
 
