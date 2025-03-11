@@ -243,32 +243,36 @@ function loadUniversityRankings() {
             。catch(error => console。error('Error loading authors:'， error));
     }
 
-    function togglePapers(authorRow， authorName) {
-        const paperRow = authorRow。nextElementSibling;
+    function togglePapers(authorRow, authorName) {
+        const paperRow = authorRow.nextElementSibling;
         if (!paperRow) return;
 
-        if (paperRow。classList。contains('open')) {
-            paperRow。classList。remove('open');
-            paperRow。style。minHeight = '1px'; // 保留最小高度，防止布局塌陷
-            paperRow。innerHTML = ''; // 清空内容
+        if (paperRow.classList.contains('open')) {
+            paperRow.classList.remove('open');
+            paperRow.innerHTML = ''; // 清空内容
         } else {
-            paperRow。classList。add('open');
+            paperRow.classList.add('open');
             fetch('/static/rankings/data/authors_papers.json')
-                。then(response => response。json())
-                。then(data => {
-                    const authorData = data。find(a => a。author_name === authorName);
+                .then(response => response.json())
+                .then(data => {
+                    const authorData = data.find(a => a.author_name === authorName);
                     if (authorData) {
-                        paperRow。innerHTML = `
+                        // 确保 `papers` 是数组，并正确渲染为 `<ul><li>`
+                        const papersList = Array.isArray(authorData.papers)
+                            ? authorData.papers.map(paper => `<li>${paper}</li>`).join('')
+                            : `<li>${authorData.papers}</li>`;  // 防止 `papers` 仍然是字符串
+
+                        paperRow.innerHTML = `
                             <td colspan="2">
-                                <ul>
-                                    ${authorData。papers。map(paper => `<li>${paper}</li>`)。join('')}
+                                <ul class="papers-list">
+                                    ${papersList}
                                 </ul>
                             </td>
                         `;
-                        paperRow。style。minHeight = 'auto'; // 动态适配内容高度
+                        paperRow.style.minHeight = 'auto'; // 动态适配内容高度
                     }
                 })
-                。catch(error => console。error('Error loading papers:'， error));
+                .catch(error => console.error('Error loading papers:', error));
         }
     }
 }
