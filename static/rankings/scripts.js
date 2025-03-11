@@ -1,67 +1,67 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded event triggered.');
+document.addEventListener('DOMContentLoaded'， () => {
+    console。log('DOMContentLoaded event triggered.');
 
-    const conferenceTableBody = document.getElementById('conference-table-body');
-    const rankingTableBody = document.querySelector('#ranking-table tbody');
-    const relatedConferencesButton = document.getElementById('related-conferences');
-    const readMeButton = document.getElementById('read-me');
+    const conferenceTableBody = document。getElementById('conference-table-body');
+    const rankingTableBody = document。querySelector('#ranking-table tbody');
+    const relatedConferencesButton = document。getElementById('related-conferences');
+    const readMeButton = document。getElementById('read-me');
 
     // Related Conferences 按钮跳转
     if (relatedConferencesButton) {
-        relatedConferencesButton.addEventListener('click', () => {
-            window.location.href = '/related-conferences';
+        relatedConferencesButton。addEventListener('click'， () => {
+            window。location。href = '/related-conferences。html';
         });
     }
 
     // Read ME 按钮跳转
     if (readMeButton) {
-        readMeButton.addEventListener('click', () => {
-            window.location.href = '/read-me';
+        readMeButton。addEventListener('click'， () => {
+            window。location。href = '/read-me。html';
         });
     }
 
     if (conferenceTableBody) {
-        console.log('Related Conferences page detected. Loading conferences...');
+        console。log('Related Conferences page detected. Loading conferences...');
         loadConferences();
         return;
     }
 
     if (rankingTableBody) {
-        console.log('Main page detected. Loading university rankings...');
+        console。log('Main page detected. Loading university rankings...');
         loadUniversityRankings();
         return;
     }
 
-    console.error('Unable to detect page type. Check your HTML structure.');
+    console。error('Unable to detect page type. Check your HTML structure.');
 });
 
 // 加载 Related Conferences 数据
 function loadConferences() {
     fetch('/static/rankings/data/conferences.json')
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.json();
+        。then(response => {
+            if (!response。ok) throw new 错误(`HTTP error! Status: ${response。status}`);
+            return response。json();
         })
-        .then(data => {
-            const conferenceTableBody = document.getElementById('conference-table-body');
+        。then(data => {
+            const conferenceTableBody = document。getElementById('conference-table-body');
             if (!conferenceTableBody) {
-                console.error('conference-table-body not found in the DOM.');
+                console。error('conference-table-body not found in the DOM.');
                 return;
             }
-            conferenceTableBody.innerHTML = data.map((conf, index) => `
+            conferenceTableBody。innerHTML = data。map((conf， index) => `
                 <tr>
                     <td>${index + 1}</td>
-                    <td>${conf.name}</td>
+                    <td>${conf。name}</td>
                 </tr>
-            `).join('');
+            `)。join('');
         })
-        .catch(error => console.error('Error loading conferences:', error));
+        。catch(error => console。error('Error loading conferences:'， error));
 }
 
 // 加载大学排名数据
 function loadUniversityRankings() {
-    const rankingTableBody = document.querySelector('#ranking-table tbody');
-    const paginationDiv = document.getElementById('pagination');
+    const rankingTableBody = document。querySelector('#ranking-table tbody');
+    const paginationDiv = document。getElementById('pagination');
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
 
