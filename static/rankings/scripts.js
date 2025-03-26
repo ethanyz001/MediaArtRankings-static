@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Related Conferences 按钮跳转
     if (relatedConferencesButton) {
         relatedConferencesButton.addEventListener('click', () => {
-            window.location.href = '/related-conferences';
+            window.location.href = 'related-conferences.html' 
         });
     }
 
     // Read ME 按钮跳转
     if (readMeButton) {
         readMeButton.addEventListener('click', () => {
-            window.location.href = '/read-me';
+            window.location.href = 'read-me.html';
         });
     }
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 加载 Related Conferences 数据
 function loadConferences() {
-    fetch('/static/rankings/data/conferences.json')
+    fetch('static/rankings/data/conferences.json')
         .then(response => {
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             return response.json();
@@ -70,7 +70,7 @@ function loadUniversityRankings() {
     const itemsPerPage = 20;
     let currentPage = 1;
 
-    fetch('/static/rankings/data/universities_score.json')
+    fetch('static/rankings/data/universities_score.json')
         .then(response => {
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             return response.json();
